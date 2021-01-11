@@ -1,2 +1,2 @@
 # Calculator_Java
-то тот же Java, только C#
+Это тот же Java, только C#
