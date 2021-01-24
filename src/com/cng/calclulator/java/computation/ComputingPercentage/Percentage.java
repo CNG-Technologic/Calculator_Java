@@ -4,6 +4,7 @@ import com.cng.calclulator.java.computation.more;
 
 import java.util.Scanner;
 
+//Вспомогательный класс для действий с процентами.
 public class Percentage {
 
     Scanner prin = new Scanner(System.in);

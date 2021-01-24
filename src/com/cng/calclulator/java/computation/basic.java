@@ -2,6 +2,9 @@ package com.cng.calclulator.java.computation;
 
 import com.cng.calclulator.java.start.MainStart;
 
+/*Класс, в котором находятся все базовые операции вычисления.
+ * (Сложение, вычитание, умножение, деление, корень числа, спень числа).
+ */
 public class basic {
 
     MainStart str = new MainStart();

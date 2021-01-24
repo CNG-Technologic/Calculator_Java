@@ -6,12 +6,15 @@ import com.cng.calclulator.java.start.MainStart;
 
 import java.util.Scanner;
 
+/*Класс в кoтором находятся дополнительные операции для вычисения более сложных задач.
+ * (Квадратное уравнение, Факториал, Действия с процентами, Действия с чилом P)
+ */
 public class more {
 
     piComputation pi = new piComputation();
     MainStart start = new MainStart();
     Percentage percentage = new Percentage();
-    Scanner id = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
     public void descriminant(double a, double b, double c) {
         double D = b * b - 4 * a * c;
@@ -32,11 +35,9 @@ public class more {
         start.startM();
     }
 
-    public void factorial(int num)
-    {
+    public void factorial(int num) {
         int factorial = 1;
-        for (int i = 1; i <= num; i++)
-        {
+        for (int i = 1; i <= num; i++) {
             factorial *= i;
         }
         System.out.println(num + "! = " + factorial);
@@ -47,7 +48,7 @@ public class more {
         System.out.println(a + " % = " + (a / 100));
 
         System.out.println("Продолжить действия с процентами? (y/n)");
-        String ifproz = id.nextLine();
+        String ifproz = scanner.nextLine();
 
         if (ifproz.equals("Y") || ifproz.equals("y")) {
             percentage.Prvoid(a);
@@ -61,15 +62,15 @@ public class more {
     public void pi() {
         System.out.println("PI = " + Math.PI);
         System.out.println("Продолжить действия с pi? (y/n)");
-        String ifpi = id.nextLine();
+        String ifpi = scanner.nextLine();
 
-        if (ifpi.equals("Y") || ifpi.equals("y")) {
-            pi.Pivoid();
-        }
+        if (ifpi.equals("Y") || ifpi.equals("y"))
+            pi.PiVoid();
 
-        if (ifpi.equals("N") || ifpi.equals("n")) {
+
+        if (ifpi.equals("N") || ifpi.equals("n"))
             start.startM();
-        }
+
 
     }
 

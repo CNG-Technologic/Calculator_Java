@@ -4,12 +4,13 @@ import com.cng.calclulator.java.computation.more;
 
 import java.util.Scanner;
 
+//Вспомогательный класс для действий с числом пи.
 public class piComputation {
 
     Scanner in = new Scanner(System.in);
-    double a_pi;
+    double a_pi; // Нет, это не апи ;)
 
-    public void Pivoid() {
+    public void PiVoid() {
         piComputation startPI = new piComputation();
         System.out.print("Что ты хочешь сделать: ");
         String piaf = in.nextLine();
