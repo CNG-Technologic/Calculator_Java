@@ -10,11 +10,22 @@ public class data {
                 '*' - умножение
                 '/' - деление
                 'k' - корень
+                's' - степень
                 '!' или 'f' - факториал
                 'd' - дескриминант
                 'pi' - число пи
                 'e' - выход""");
         //Console.WriteLine("Oh shit here we go again");
+    }
+
+    public static void help_pi_text() {
+        System.out.println("""
+                '+' - сложение\s
+                '-' - вычитание
+                '*' - умножение
+                '/' - деление
+                's' - степень""");
+
     }
 
 }
