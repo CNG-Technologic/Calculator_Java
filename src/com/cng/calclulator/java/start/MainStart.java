@@ -1,111 +1,103 @@
 package com.cng.calclulator.java.start;
 
-import com.cng.calclulator.java.Text;
-import com.cng.calclulator.java.computation.basic;
-import com.cng.calclulator.java.computation.more;
-
 import java.util.Scanner;
+
+import static com.cng.calclulator.java.common.data.help_text;
+import static com.cng.calclulator.java.computation.piComputation.pi_void;
+import static com.cng.calclulator.java.computation.basic.*;
+import static com.cng.calclulator.java.computation.more.*;
+import static com.cng.calclulator.java.start.Main.full_exit;
 
 public class MainStart {
 
-    public void startM() {
-
-        //Объекты для запуска вычислительных операций
-        more more = new more();
-        basic basic = new basic();
-        Text text = new Text();
-        ifStart Mstart = new ifStart();
-
-        //переменные для передачи объектам данных
-        double a, b, c;
+    public static void start_main() {
 
         Scanner in = new Scanner(System.in);
+        double a, b, c;
 
-        System.out.print("Что ты хочешь сделать: ");
-        String ifoper = in.nextLine();
+        System.out.print("\nЧто ты хочешь сделать: (help - все функции)");
+        String start_operator = in.nextLine();
 
-        /* Если введеное знаечение от пользователя удовлетваряет это условие, запускается проверка для запуска конкреной
-         операции, иначе пользователь увидит ошибку о неизвестном операторе.
-         */
-        if(ifoper.equals("+") || ifoper.equals("-") || ifoper.equals("*") || ifoper.equals("/") || ifoper.equals("k")
-                || ifoper.equals("s") || ifoper.equals("d") || ifoper.equals("f") || ifoper.equals("!") || ifoper.equals("pi")
-                || ifoper.equals("e") || ifoper.equals("е") || ifoper.equals("?") || ifoper.equals("help") ) {
+        if(start_operator.equals("+") || start_operator.equals("-") || start_operator.equals("*") || start_operator.equals("/") || start_operator.equals("k")
+                || start_operator.equals("s") || start_operator.equals("d") || start_operator.equals("f") || start_operator.equals("!") || start_operator.equals("pi")
+                || start_operator.equals("?") || start_operator.equals("help") ) {
 
-
-            if(ifoper.equals("e") || ifoper.equals("е")) { //Английская и русская e
-                System.out.println("Ты действительно хочешь выйти? ");
-                Mstart.ifStartVoid();
-            }
-
-            if(ifoper.equals("help") || ifoper.equals("?"))
-                text.helptext();
-
-            //Это условие нужно для минимизации повтора кода. Для + - / * нужно получить на вход 2 числа
-            if (ifoper.equals("+") || ifoper.equals("-") || ifoper.equals("*") || ifoper.equals("/")) {
+            if (start_operator.equals("+") || start_operator.equals("-") || start_operator.equals("*") || start_operator.equals("/")) {
                 System.out.print("Введи 1 число: ");
                 a = in.nextDouble();
                 System.out.print("Введи 2 число: ");
                 b = in.nextDouble();
 
-                if (ifoper.equals("+")) {
-                    basic.sloz(a, b);
-                }
+                if (start_operator.equals("+"))
+                    System.out.println(a + " + " + b + " = " + sum(a, b));
 
-                if (ifoper.equals("-")) {
-                    basic.vichitanie(a, b);
-                }
+                if (start_operator.equals("-"))
+                    System.out.println(a + " - " + b + " = " + difference(a, b));
 
-                if (ifoper.equals("*")) {
-                    basic.umnozhenie(a, b);
-                }
+                if (start_operator.equals("*"))
+                    System.out.println(a + " * " + b + " = " + multiplication_of_numbers(a, b));
 
-                if (ifoper.equals("/")) {
-                    basic.delenie(a, b);
-                }
+                if (start_operator.equals("/"))
+                    System.out.println(a + " / " + b + " = " + quotient(a, b));
+
             }
 
-            if (ifoper.equals("k")) {
+            if (start_operator.equals("k")) {
                 System.out.print("Введи число:");
                 a = in.nextDouble();
-                basic.koren(a);
+                System.out.println(root_of_number(a));
             }
 
-            //В этом условие на вход получаются 2 числа, но сообщение для пользователя отличается (Введи степень, а не Введи 2 число)
-            if (ifoper.equals("s")) {
+            if (start_operator.equals("s")) {
                 System.out.print("Введи число: ");
                 a = in.nextDouble();
                 System.out.print("Введи степень: ");
                 b = in.nextDouble();
-                basic.stepen(a, b);
+                System.out.println(degree_num(a, b));
             }
 
-            if (ifoper.equals("d")) {
+            if (start_operator.equals("d")) {
                 System.out.print("Введи a: ");
                 a = in.nextDouble();
                 System.out.print("Введи b: ");
                 b = in.nextDouble();
                 System.out.print("Введи c: ");
                 c = in.nextDouble();
-                more.descriminant(a, b, c);
+                full_quadratic_equation(a, b, c);
             }
 
-            if (ifoper.equals("f") || ifoper.equals("!")) {
+            if (start_operator.equals("f") || start_operator.equals("!")) {
                 System.out.print("Введи число: ");
                 int num = in.nextInt();
-                more.factorial(num);
+                System.out.println(factorial(num));
             }
 
+            if (start_operator.equals("pi")) {
+                System.out.println("Pi = " + Math.PI);
+                System.out.format("Продолжить действия с pi? (y/n) ");
+                String operator = in.nextLine();
 
-            if (ifoper.equals("pi")) {
-                more.pi();
+                if(operator.equals("y"))
+                    pi_void();
+                else if(operator.equals("n"))
+                    System.out.println("Возвращаемся назад...");
+                else
+                    System.out.println("Комманда <" + operator + "> не найдена");
+
             }
 
-        } else {
-            System.out.println("Команда <" +  ifoper + "> не найдена.");
-            startM();
+            if(start_operator.equals("help") || start_operator.equals("?")) {
+                help_text();
+            }
+
+            start_main();
+
+        } else if (start_operator.equals("e") || start_operator.equals("е"))
+            full_exit();
+        else {
+            System.out.println("Команда <" +  start_operator + "> не найдена.");
+            start_main();
         }
 
     }
-
-
 }

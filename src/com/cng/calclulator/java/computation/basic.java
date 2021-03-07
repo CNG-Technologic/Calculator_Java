@@ -1,43 +1,29 @@
 package com.cng.calclulator.java.computation;
 
-import com.cng.calclulator.java.start.MainStart;
-
-/*Класс, в котором находятся все базовые операции вычисления.
- * (Сложение, вычитание, умножение, деление, корень числа, спень числа).
- */
 public class basic {
 
-    MainStart str = new MainStart();
-
-    public void sloz(double a, double b) {
-        System.out.println(a + " + " + b + " = " + (a + b));
-        str.startM();
+    public static double sum(double a, double b){
+        return a + b;
     }
 
-    public void vichitanie(double a, double b) {
-        System.out.println(a + " - " + b + " = " + (a - b));
-        str.startM();
+    public static double difference(double a, double b) {
+        return a - b;
     }
 
-    public void umnozhenie(double a, double b) {
-        System.out.println(a + " * " + b + " = " + (a * b));
-        str.startM();
+    public static double multiplication_of_numbers(double a, double b) {
+        return a * b;
     }
 
-    public void delenie(double a, double b){
-        System.out.println(a + " / " + b + " = " + (a / b));
-        str.startM();
+    public static double quotient(double a, double b) {
+        return a / b;
     }
 
-    public void koren(double a) {
-        System.out.println("Корень из " + a + " = " + Math.sqrt(a));
-        str.startM();
+    public static double root_of_number(double a) {
+        return Math.sqrt(a);
     }
 
-    public void stepen(double a, double b) {
-        System.out.println(a + " в степени " + b + " = " + Math.pow(a, b));
-        str.startM();
+    public static double degree_num(double a, double b){
+        return Math.pow(a, b);
     }
-
 
 }
