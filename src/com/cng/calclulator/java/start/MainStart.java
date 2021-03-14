@@ -15,12 +15,10 @@ public class MainStart {
         Scanner in = new Scanner(System.in);
         double a, b, c;
 
-        System.out.print("\nЧто ты хочешь сделать: (help - все функции)");
+        System.out.println("\n(help - все функции) \nЧто ты хочешь сделать:");
         String start_operator = in.nextLine();
 
-        if(start_operator.equals("+") || start_operator.equals("-") || start_operator.equals("*") || start_operator.equals("/") || start_operator.equals("k")
-                || start_operator.equals("s") || start_operator.equals("d") || start_operator.equals("f") || start_operator.equals("!") || start_operator.equals("pi")
-                || start_operator.equals("?") || start_operator.equals("help") ) {
+        if(validate_operator(start_operator)) {
 
             if (start_operator.equals("+") || start_operator.equals("-") || start_operator.equals("*") || start_operator.equals("/")) {
                 System.out.print("Введи 1 число: ");
@@ -69,26 +67,14 @@ public class MainStart {
             if (start_operator.equals("f") || start_operator.equals("!")) {
                 System.out.print("Введи число: ");
                 int num = in.nextInt();
-                System.out.println(factorial(num));
+                System.out.println(num + "! = " + factorial(num));
             }
 
-            if (start_operator.equals("pi")) {
-                System.out.println("Pi = " + Math.PI);
-                System.out.format("Продолжить действия с pi? (y/n) ");
-                String operator = in.nextLine();
+            if (start_operator.equals("pi"))
+                pi_start();
 
-                if(operator.equals("y"))
-                    pi_void();
-                else if(operator.equals("n"))
-                    System.out.println("Возвращаемся назад...");
-                else
-                    System.out.println("Комманда <" + operator + "> не найдена");
-
-            }
-
-            if(start_operator.equals("help") || start_operator.equals("?")) {
+            if(start_operator.equals("help") || start_operator.equals("?"))
                 help_text();
-            }
 
             start_main();
 
@@ -100,4 +86,27 @@ public class MainStart {
         }
 
     }
+
+    public static void pi_start() {
+        Scanner pi = new Scanner(System.in);
+        System.out.println("Pi = " + Math.PI);
+        System.out.format("Продолжить действия с pi? (y/n) ");
+        String operator = pi.nextLine();
+
+        if(operator.equals("y"))
+            pi_void();
+        else if(operator.equals("n"))
+            System.out.println("Возвращаемся назад...");
+        else {
+            System.out.println("Комманда <" + operator + "> не найдена");
+            pi_start();
+        }
+    }
+
+    public static boolean validate_operator(String operator) {
+        return operator.equals("+") | operator.equals("-") | operator.equals("*") | operator.equals("/") | operator.equals("k")
+                | operator.equals("s") | operator.equals("d") | operator.equals("f") | operator.equals("!") | operator.equals("pi")
+                | operator.equals("?") | operator.equals("help");
+    }
+
 }

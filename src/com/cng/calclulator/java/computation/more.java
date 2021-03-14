@@ -10,15 +10,16 @@ public class more {
             double x1, x2;
             x1 = (-b - Math.sqrt(D)) / (2 * a);
             x2 = (-b + Math.sqrt(D)) / (2 * a);
+            System.out.println("x1 = (" + -b + " - " + Math.sqrt(D) + ") / (2 * " + a + ") = " + x1);
+            System.out.println("x2 = (" + -b + " + " + Math.sqrt(D) + ") / (2 * " + a + ") = " + x2);
             System.out.println("Корни уравнения: x1 = " + x1 + ", x2 = " + x2);
         } else if (D == 0) {
             double x;
             x = -b / (2 * a);
+            System.out.println("x = " + -b + " / (2 * " + a + ") = " + x);
             System.out.println("Уравнение имеет единственный корень: x = " + x);
-        } else {
+        } else
             System.out.println("Уравнение не имеет действительных корней!");
-        }
-
     }
 
     public static int factorial(int num) {

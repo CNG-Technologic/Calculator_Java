@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 import static com.cng.calclulator.java.common.data.help_pi_text;
 import static com.cng.calclulator.java.computation.basic.*;
+import static com.cng.calclulator.java.start.MainStart.pi_start;
 
 public class piComputation {
 
-    static final Scanner in = new Scanner(System.in);
-    static double a;
-
     public static void pi_void() {
+
+        Scanner in = new Scanner(System.in);
+        double a;
+
         System.out.format("\nЧто ты хочешь сделать? ");
         String operator = in.nextLine();
 
@@ -46,7 +48,7 @@ public class piComputation {
                 pi_void();
             }
 
-
+            pi_start();
         } else {
             System.out.println("Команда <" + operator + "> для работы с числом пи не найдена");
             pi_void();
@@ -55,8 +57,9 @@ public class piComputation {
     }
 
     public static double get_data() {
+        Scanner get = new Scanner(System.in);
         System.out.format("Введи число: ");
-        return in.nextDouble();
+        return get.nextDouble();
     }
 
 }

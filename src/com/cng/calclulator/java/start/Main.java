@@ -10,7 +10,7 @@ public class Main {
     static final Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Калькулятор Java 2.1 BETA");
+        System.out.println("Калькулятор Java 2.2 BETA");
         start_void();
     }
 
